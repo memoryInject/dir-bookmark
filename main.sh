@@ -61,7 +61,7 @@ function __bm_show_help {
     echo "      eh, -eh, --edit-bookmark                          Edit history in vim"
     echo "      r , -r , --remove, --remove-bookmark              Remove an entry from bookmark"
     echo "      rh, -rh, --remove-bookmark                        Remove an entry from history"
-    echo "      cd <path>                                         Same as cd except it will add visited path to history list and support pipe: '$HOME | $1 cd'"
+    echo "      cd <path>                                         Same as cd except it will add visited path to history list and support pipe: '$HOME | $1 cd -i'"
     echo "      h , -h , --help                                   Show help"
 }
 
@@ -99,7 +99,16 @@ function __bm_main {
 
             if [[ $2 == "--help" ]]; then
                 # show help
-                #TODO
+                echo "bm 0.01.0"
+                echo "A cd tool with some other cool stuff, use just like cd except it will also add visited path to an history list"
+                echo ""
+
+                echo "Script usage:  $me cd [Flags/Commands] [Options] [Path] ..."
+                echo ""
+
+                echo "Flags/Commands:"
+                echo "      i , -i                     Send path with pipe: '$HOME | $me cd -i'"
+                echo "      --help                     Show help"
                 return 0
             fi
 
