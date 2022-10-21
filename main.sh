@@ -93,7 +93,10 @@ function __bm_main {
         cd) # cd and store history
             if [[ $2 == "i" || $2 == "-i" ]]; then
                 # work with pipe
-                #TODO
+                read -r line
+
+                cd $line
+                __bm_unique_list $HISTORY_FILE
                 return 0
             fi
 
@@ -114,6 +117,10 @@ function __bm_main {
 
             if [[ $2 != "" ]]; then
                 cd $2 && pwd >> $HISTORY_FILE
+                __bm_unique_list $HISTORY_FILE
+            else
+                # go to $HOME
+                cd
                 __bm_unique_list $HISTORY_FILE
             fi
             ;;
