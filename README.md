@@ -51,7 +51,7 @@ After successful installation, by default there will be `s` and `sd` command ava
 
 ```bash
 ❯ s --help
-bm 0.01.0
+bm 0.01.1
 A directory bookmark tool and cd tool with some other cool stuff
 
 Script usage:  __bm_main [Flags/Commands] [Options] [Path] ...
@@ -66,10 +66,11 @@ Flags/Commands:
       eh, -eh, --edit-bookmark                          Edit history in vim
       r , -r , --remove, --remove-bookmark              Remove an entry from bookmark
 
-      rh, -rh, --remove-bookmark                        Remove an entry from history
+      rh, -rh, --remove-history                         Remove an entry from history
 
       cd <path>                                         Same as cd except it will add visited path to history list and support pipe: '/home/mahesh | __bm_main cd -i'
       h , -h , --help                                   Show help
+      v , -v , --version                                Show version
 ```
 
 #### Add to bookmark:   

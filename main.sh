@@ -45,7 +45,7 @@ function __bm_add_entry {
 }
 
 function __bm_show_help {
-    echo "bm 0.01.0"
+    echo "bm 0.01.1"
     echo "A directory bookmark tool and cd tool with some other cool stuff"
     echo ""
 
@@ -60,9 +60,10 @@ function __bm_show_help {
     echo "      e , -e , --edit, --edit-bookmark                  Edit bookmark in vim"
     echo "      eh, -eh, --edit-bookmark                          Edit history in vim"
     echo "      r , -r , --remove, --remove-bookmark              Remove an entry from bookmark"
-    echo "      rh, -rh, --remove-bookmark                        Remove an entry from history"
+    echo "      rh, -rh, --remove-history                         Remove an entry from history"
     echo "      cd <path>                                         Same as cd except it will add visited path to history list and support pipe: '$HOME | $1 cd -i'"
     echo "      h , -h , --help                                   Show help"
+    echo "      v , -v , --version                                Show version"
 }
 
 function __bm_main {
@@ -112,11 +113,17 @@ function __bm_main {
                 echo "Flags/Commands:"
                 echo "      i , -i                     Send path with pipe: '$HOME | $me cd -i'"
                 echo "      --help                     Show help"
+                echo "      --version                  Show version"
+                return 0
+            fi
+
+            if [[ $2 == "--version" ]]; then
+                echo "bm version 0.01.1"
                 return 0
             fi
 
             if [[ $2 != "" ]]; then
-                cd $2 && pwd >> $HISTORY_FILE
+                cd $(echo $2) && pwd >> $HISTORY_FILE
                 __bm_unique_list $HISTORY_FILE
             else
                 # go to $HOME
@@ -167,6 +174,9 @@ function __bm_main {
             ;;
         h|-h|--help) # show help
             __bm_show_help $me
+            ;;
+        v|-v|--version) # show version
+            echo "bm version 0.01.1" 
             ;;
         *) echo default
             ;;
