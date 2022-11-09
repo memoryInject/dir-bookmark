@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: ./bin/docker-build.sh
     - name: Run the Docker image
-      run: ./bin/docker-run.sh
+      run: docker run -v $(pwd):/app  --rm -i my-bash-app
