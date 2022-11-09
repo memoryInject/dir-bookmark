@@ -1,5 +1,7 @@
 
 # dir-bookmark 🔖
+![example workflow](https://github.com/memoryInject/dir-bookmark/actions/workflows/docker-image.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A cli tool to bookmark directories and directory history.  
 
