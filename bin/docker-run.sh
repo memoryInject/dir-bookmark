@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -v $(pwd):/app  -it my-bash-app
+docker run -v $(pwd):/app  --rm -i my-bash-app
